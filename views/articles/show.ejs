@@ -7,5 +7,33 @@
 <p><%= article.content %></p>
 
 <hr />
+<h4>Comments</h4>
+<% article.comments.forEach(comment => { %>
+<div>
+  <p><strong><%= comment.name %></strong></p>
+  <p><%= comment.content %></p>
+  <p><small><%= moment(article.createdAt).calendar() %></small></p>
+</div>
+<% }) %>
+<p>
+</p>
 
+<hr />
+<h4>Add a comment</h4>
+<form action="/articles/:id/comments" method="POST">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" name="name" required>
+  </div>
+
+  <div class="form-group">
+    <label for="content">Comment</label>
+    <textarea type="text" class="form-control" name="content" required></textarea>
+  </div>
+  
+  <input type="hidden" class="form-control" name="articleId" value="<%= article.id %>">
+
+  <input type="submit" class="btn btn-primary">
+</form>
+<hr />
 <a href="/">&larr; Back Home</a>
