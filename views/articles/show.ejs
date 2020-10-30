@@ -9,10 +9,10 @@
 <hr />
 <h4>Comments</h4>
 <% article.comments.forEach(comment => { %>
-<div>
+<div class="well">
   <p><strong><%= comment.name %></strong></p>
   <p><%= comment.content %></p>
-  <p><small><%= moment(article.createdAt).calendar() %></small></p>
+  <p><small><%= moment(comment.createdAt).calendar() %></small></p>
 </div>
 <% }) %>
 <p>
