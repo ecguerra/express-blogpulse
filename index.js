@@ -4,7 +4,9 @@ let ejsLayouts = require('express-ejs-layouts')
 let db = require('./models')
 let moment = require('moment')
 let app = express()
+let methodOverride = require('method-override')
 
+app.use(methodOverride('_method'))
 app.set('view engine', 'ejs')
 
 app.use(express.urlencoded({ extended: false }))

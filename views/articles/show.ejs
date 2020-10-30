@@ -6,6 +6,8 @@
 
 <p><%= article.content %></p>
 
+<p><small><a href="/articles/edit/<%= article.id %>">Edit</a></small></p>
+
 <hr />
 <h4>Comments</h4>
 <% article.comments.forEach(comment => { %>
